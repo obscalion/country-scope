@@ -1,0 +1,79 @@
+.navbar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .navbar-logo img {
+    height: 35px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    font-family: 'JetBrains Mono';
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    margin: 0 30px;
+  }
+  
+  .navbar-links li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navbar-links li a:hover {
+    text-decoration: underline;
+  }
+  
+  .hamburger-menu {
+    display: none; /* Initially hide on larger screens */
+  }
+
+  /* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 40px;
+    }
+    .navbar-links {
+        display: none; /* Hide regular links on smaller screens */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        align-items: flex-start;
+        top: 60px; /* Adjust according to your Navbar height */
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        padding: 10px 40px;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+
+    .navbar-links.show {
+        display: flex; /* Show links when hamburger is toggled */
+    }
+  
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+        cursor: pointer;
+    }
+  }
