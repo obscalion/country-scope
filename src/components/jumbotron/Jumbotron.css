@@ -1,0 +1,76 @@
+.jumbotron {
+/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2961223804. */
+    background-image: linear-gradient(to bottom, #00000000 0, #000000 480px, #000000 480px), url('../../assets/world-map-2.png');
+    background-repeat: repeat-x;
+    background-size: 825px 500px;
+    min-height: 500px;
+    display: flex;
+}
+
+.jumbotron .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.image-box {
+    width: 40%;
+    flex: 1;
+    border: 1px solid red;
+}
+
+.content-box {
+    background: linear-gradient(to right, #00000000 0, #000000 140px, #000000 100px);
+    width: 60%;
+    flex: 1;
+    padding-left: 200px;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.text-wrap {
+    width: 100%;
+    padding-top: 100px;
+}
+
+.text-wrap h1 {
+    font-size: 38px;
+}
+
+.text-wrap p {
+    color: #959595;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 2rem;
+    margin-bottom: 40px;
+}
+
+.text-wrap label {
+    color: #c0c0c0
+}
+
+@media screen and (max-width: 768px) {
+
+    .jumbotron {
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: top;
+    }
+    
+    .jumbotron .container {
+        flex-direction: column;
+    }
+
+    .image-box {
+        width: 100%;
+        min-height: 400px;;
+    }
+
+    .content-box {
+        width: 100%;
+        background-color: #000000;
+        padding: 10px;
+    }
+
+  }

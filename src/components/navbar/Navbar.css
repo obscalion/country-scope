@@ -40,7 +40,9 @@
   }
   
   .navbar-links li a:hover {
-    text-decoration: underline;
+    color: #2f8b87;
+    font-weight: bolder;
+    transition: ease 0.3s;
   }
   
   .hamburger-menu {
@@ -50,7 +52,7 @@
   /* Media Query for Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar {
-        padding: 10px 40px;
+        padding: 10px 20px;
     }
     .navbar-links {
         display: none; /* Hide regular links on smaller screens */
