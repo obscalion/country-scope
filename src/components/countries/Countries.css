@@ -1,0 +1,19 @@
+.countries {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    text-align: center;
+}
+
+.countries h2 {
+    font-size: 30px;
+}
+
+.country-list {
+    max-width: 1100px;
+    display: flex;
+    margin: 50px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
