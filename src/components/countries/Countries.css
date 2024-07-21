@@ -17,3 +17,11 @@
     justify-content: center;
     gap: 50px;
 }
+
+@media screen and (max-width: 768px) {
+
+    .countries {
+        padding-top: 75px;
+    }
+
+  }

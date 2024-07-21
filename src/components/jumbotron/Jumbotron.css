@@ -1,8 +1,8 @@
 .jumbotron {
 /* Suggested code may be subject to a license. Learn more: ~LicenseLog:2961223804. */
-    background-image: linear-gradient(to bottom, #00000000 0, #000000 480px, #000000 480px), url('../../assets/world-map-2.png');
+    background-image: linear-gradient(to bottom, #00000000 0, #000000 480px, #000000 480px), url('../../assets/world-map-3.png');
     background-repeat: repeat-x;
-    background-size: 825px 500px;
+    background-size: 850px 500px;
     min-height: 500px;
     display: flex;
 }
