@@ -31,18 +31,8 @@
   }
   
   .navbar-links li {
-    margin: 0 30px;
-  }
-  
-  .navbar-links li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbar-links li a:hover {
-    color: #009ee7;
-    font-weight: bolder;
-    transition: ease 0.3s;
+    width: 100%;
+    margin: 0 0;
   }
   
   .hamburger-menu {
@@ -52,7 +42,7 @@
   /* Media Query for Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar {
-        padding: 10px 20px;
+        padding: 10px 30px;
     }
     .navbar-links {
         display: none; /* Hide regular links on smaller screens */
@@ -63,11 +53,12 @@
         left: 0;
         width: 100%;
         background-color: #000000;
-        padding: 10px 40px;
+        padding: 10px 0;
+        z-index: 100;
     }
 
     .navbar-links li {
-        margin: 10px 0;
+        border-bottom: 1px solid rgb(44, 44, 44);
     }
 
     .navbar-links.show {

@@ -1,82 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Navbar.css'; // File CSS untuk styling Navbar
 import logo from '../../assets/nav-text-logo.png';
-import { Button, Dropdown, Space } from 'antd';
 import { TfiMenu } from "react-icons/tfi";
-
-const items = [
-  {
-    key: '1',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    key: '2',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item
-      </a>
-    ),
-  },
-  {
-    key: '3',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item
-      </a>
-    ),
-  },
-];
+import Dropdown  from '../dropdown/Dropdown';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    if (setShowMenu) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    } else {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+
+  }, [setShowMenu]);
+
+  const navbarData = [
+    {
+      id: 0,
+      title: 'All Countries',
+      items: [],
+    },
+    {
+      id: 1,
+      title: 'Continents',
+      items: ['Asia', 'Europe', 'Africa', 'South America', 'North America', 'Australia'],
+    },
+    {
+      id: 2,
+      title: 'Regions',
+      items: ['East Asia', 'Southeast Asia', 'South Asia', 'Central Asia', 'Western Europe', 'Eastern Europe', 'Northern Europe', 'Southern Europe', 'Middle East', 'North Africa', 'South Africa', 'Central Africa', 'Western Africa', 'Eastern Africa', 'North America', 'North America', 'South America', 'Caribbean', 'Oceania'],
+    },
+  ];
+
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={dropdownRef}>
       <div className="navbar-logo">
         <img src={logo} alt="" srcSet="" />
       </div>
       <ul className={`navbar-links ${showMenu ? 'show' : ''}`}>
-        <li>
-          <Dropdown
-            menu={{
-              items,
-            }}
-            placement="topLeft"
-            arrow
-          >
-            <a href="#">All Countries</a>
-          </Dropdown>
-        </li>
-        <li>
-          <Dropdown
-              menu={{
-                items,
-              }}
-              placement="top"
-              arrow
-          >
-            <a href="#">Continents</a>
-          </Dropdown>
-        </li>
-        <li>
-          <Dropdown
-              menu={{
-                items,
-              }}
-              placement="topRight"
-              arrow
-          >
-            <a href="#">Regions</a>
-          </Dropdown>
-        </li>
+        
+        {navbarData.map((item, index) => (
+            <li key={index}>
+              <Dropdown 
+              title={item.title}
+              dropdownItems={item.items} />
+          </li>
+          ))}
+        
       </ul>
       <div className="hamburger-menu"  onClick={toggleMenu}>
         <TfiMenu />
