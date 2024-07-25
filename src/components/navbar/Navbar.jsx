@@ -32,19 +32,16 @@ const Navbar = () => {
 
   const navbarData = [
     {
-      id: 0,
-      title: 'All Countries',
+      title: 'Countries',
       items: [],
     },
     {
-      id: 1,
       title: 'Continents',
       items: ['Asia', 'Europe', 'Africa', 'South America', 'North America', 'Australia'],
     },
     {
-      id: 2,
-      title: 'Regions',
-      items: ['East Asia', 'Southeast Asia', 'South Asia', 'Central Asia', 'Western Europe', 'Eastern Europe', 'Northern Europe', 'Southern Europe', 'Middle East', 'North Africa', 'South Africa', 'Central Africa', 'Western Africa', 'Eastern Africa', 'North America', 'North America', 'South America', 'Caribbean', 'Oceania'],
+      title: 'Insights',
+      items: [],
     },
   ];
 
