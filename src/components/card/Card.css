@@ -9,11 +9,13 @@
 
 .flag {
     width: inherit;
+    height: 138px;
+    overflow: hidden;
 }
 
 .flag img {
     width: inherit;
-    min-height: 138px;
+    height: inherit;
 }
 
 .card-content {
@@ -60,8 +62,8 @@
         width: 126px;
     }
 
-    .flag img {
-        min-height: 76px;
+    .flag {
+        height: 76px;
     }
 
     .card-content {

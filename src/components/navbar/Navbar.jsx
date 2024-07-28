@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { getUniqueRegions } from '../../services/services';
 import './Navbar.css'; // File CSS untuk styling Navbar
 import logo from '../../assets/nav-text-logo.png';
 import { TfiMenu } from "react-icons/tfi";
 import Dropdown  from '../dropdown/Dropdown';
 
-const Navbar = () => {
+const Navbar = ({ onRegionSelect }) => {
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -29,15 +30,15 @@ const Navbar = () => {
     };
 
   }, [setShowMenu]);
-
+  
   const navbarData = [
     {
       title: 'Countries',
       items: [],
     },
     {
-      title: 'Continents',
-      items: ['Asia', 'Europe', 'Africa', 'South America', 'North America', 'Australia'],
+      title: 'Regions',
+      items: getUniqueRegions(),
     },
     {
       title: 'Insights',
@@ -55,6 +56,7 @@ const Navbar = () => {
         {navbarData.map((item, index) => (
             <li key={index}>
               <Dropdown 
+              onSelectedRegion={onRegionSelect}
               title={item.title}
               dropdownItems={item.items} />
           </li>

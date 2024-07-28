@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { getCountriesByRegion } from '../../services/services';
 import './Dropdown.css';
 
-const Dropdown = ({ title, dropdownItems }) => {
+const Dropdown = ({ title, dropdownItems, onSelectedRegion }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -26,7 +27,7 @@ const Dropdown = ({ title, dropdownItems }) => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isOpen]);
-
+  
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropdown-toggle">
@@ -35,8 +36,8 @@ const Dropdown = ({ title, dropdownItems }) => {
       {isOpen && (
         <div className="dropdown-menu">
           {dropdownItems.map((item, index) => (
-            <button key={index} className="dropdown-item">
-              {item}
+            <button key={index} className="dropdown-item" onClick={() => onSelectedRegion(item)}>
+              {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
           ))}
         </div>

@@ -1,12 +1,11 @@
-import react, { useState } from 'react';
 import './Card.css'; // File CSS untuk styling Countries
 
-const Card = ({countryName, countryCapital}) => {
+const Card = ({countryName, countryCapital, flagSrc, flagAlt}) => {
 
   return (
     <div className="card">
         <div className="flag">
-            <img src="https://flagcdn.com/w320/de.png" alt="Flag" />
+            <img src={flagSrc} alt={flagAlt} />
         </div>
         <div className="card-content">
             <div className="card-title">
