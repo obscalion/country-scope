@@ -1,0 +1,11 @@
+.pagination-container {
+    width: fit-content;
+    padding: 5px;
+    border-radius: 25px;
+    margin: 20px auto;
+}
+
+.pagination-container div,
+.pagination-container button {
+    color: white;
+}

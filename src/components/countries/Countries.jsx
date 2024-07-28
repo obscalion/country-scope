@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
 import Card from '../card/Card';
+import PaginationComponent from '../pagination/Pagination';
 import './Countries.css'; // File CSS untuk styling Countries
 
-const Countries = () => {
-    const [showMenu, setShowMenu] = useState(false); 
+const countryData = Array.from({ length: 130 }, (_, index) => ({
+  name: `Country ${index + 1}`,
+  capital: `Capital ${index + 1}`
+}));
 
-  
+const Countries = () => {
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 12;
+    
+    const handlePageChange = (event, value) => {
+      setPage(value);
+    };
+
+    const startIndex = (page - 1) * itemsPerPage;
+    const paginatedItems = countryData.slice(startIndex, startIndex + itemsPerPage);
+
     return (
       <section className="countries">
         <h2>Countries</h2>
         <div className="country-list">
-          <Card 
-            countryName="Saint Vincent and the Grenadines"
-            countryCapital="Kingstown"
-          />
-          <Card 
-            countryName="United States of America"
-            countryCapital="Washington DC"
-          />
-          <Card 
-            countryName="France"
-            countryCapital="Paris"
-          />
-          <Card 
-            countryName="United Kingdom"
-            countryCapital="London"
-          />
-          <Card 
-            countryName="Bosnia and Herzegovina"
-            countryCapital="Sarajevo"
-          />
+          
+          {paginatedItems.map((item, index) => (
+            <Card 
+            key={index}
+            countryName={item.name}
+            countryCapital={item.capital}
+            />
+          ))}
         </div>
+        <PaginationComponent
+        count={Math.ceil(countryData.length / itemsPerPage)}
+        page={page}
+        onPageChange={handlePageChange}
+        />
       </section>
     );
   }
