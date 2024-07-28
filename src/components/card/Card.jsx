@@ -1,8 +1,7 @@
 import react, { useState } from 'react';
 import './Card.css'; // File CSS untuk styling Countries
 
-const Card = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const Card = ({countryName, countryCapital}) => {
 
   return (
     <div className="card">
@@ -11,10 +10,10 @@ const Card = () => {
         </div>
         <div className="card-content">
             <div className="card-title">
-                <h3>Germany</h3>
+                <h3>{countryName}</h3>
             </div>
             <div className="card-capital">
-                <p>Berlin</p>
+                <p>{countryCapital}</p>
             </div>
         </div>
         <button className="card-button">

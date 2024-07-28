@@ -1,7 +1,7 @@
 .countries {
     width: 100%;
     height: fit-content;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
 }
 
@@ -14,14 +14,20 @@
     display: flex;
     margin: 50px auto;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 50px;
+    justify-content: space-around;
+    gap: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
 
     .countries {
-        padding-top: 75px;
+        padding: 75px 20px;
+    }
+    
+    .country-list {
+        margin-top: 20px;
+        justify-content: space-around;
+        gap: 10px;
     }
 
   }

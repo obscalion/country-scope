@@ -2,7 +2,7 @@
     width: 230px;
     background-color: #040404;
     padding: 0;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     border: 1px solid transparent;
     
 }
@@ -25,7 +25,7 @@
 
 .card-title {
     width: 100%;
-    max-height: 50px;
+    max-height: 75px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -53,4 +53,30 @@
     background-color: #008aca;
     font-weight: bold;
     transition: ease-in-out 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .card, .flag {
+        width: 126px;
+    }
+
+    .flag img {
+        min-height: 76px;
+    }
+
+    .card-content {
+        height: 90px;
+    }
+
+    .card-title h3 {
+        font-size: 13px;
+    }
+
+    .card-capital p {
+        font-size: 10px;
+    }
+
+    .card-button {
+        font-size: 10px;
+    }
 }
