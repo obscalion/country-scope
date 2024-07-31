@@ -12,7 +12,7 @@ div.dropdown-menu {
     position: absolute;
     overflow-x: hidden;
     overflow-y: auto;
-    border-left: 3px solid orangered;
+    border-left: 3px solid #1eb53a;
     z-index: 20;
 }
 

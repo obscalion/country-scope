@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
-import './SearchBox.css'
+import './SearchBox.css';
 import { FiSearch } from "react-icons/fi";
 
 const SearchBox = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
-
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-    console.log(event.target.value)
+  const [keyword, setKeyword] = useState('');
+  const handleInputChange = (event) => {
+    setKeyword(event.target.value);
+    onSearch(keyword);
   };
-
   const handleSearch = () => {
-    if (onSearch) {
-      onSearch(query);
-      console.log(query)
-    }
+    onSearch(keyword);
   };
 
   return (
     <div className="search-container">
       <input
         type="text"
-        value={query}
-        onChange={handleChange}
+        value={keyword}
+        onChange={handleInputChange}
         placeholder="Search..."
         id="search-input"
       />

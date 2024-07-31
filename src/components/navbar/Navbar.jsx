@@ -5,6 +5,21 @@ import logo from '../../assets/nav-text-logo.png';
 import { TfiMenu } from "react-icons/tfi";
 import Dropdown  from '../dropdown/Dropdown';
 
+const navbarData = [
+  {
+    title: 'Countries',
+    items: ['All Countries'],
+  },
+  {
+    title: 'Regions',
+    items: getUniqueRegions(),
+  },
+  {
+    title: 'Insights',
+    items: [],
+  },
+];
+
 const Navbar = ({ onRegionSelect }) => {
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
@@ -30,21 +45,6 @@ const Navbar = ({ onRegionSelect }) => {
     };
 
   }, [setShowMenu]);
-  
-  const navbarData = [
-    {
-      title: 'Countries',
-      items: [],
-    },
-    {
-      title: 'Regions',
-      items: getUniqueRegions(),
-    },
-    {
-      title: 'Insights',
-      items: [],
-    },
-  ];
 
   return (
     <nav className="navbar" ref={dropdownRef}>

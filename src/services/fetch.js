@@ -1,6 +1,6 @@
 const API_BASE_URL = 'https://restcountries.com/v3.1';
 
-export const fetchCountries = async () => {
+export const fetchAllCountries = async () => {
     try {
         // Mengambil data dari API
         const response = await fetch(API_BASE_URL + '/all?fields=name,capital,flags,continents,population,cca3');

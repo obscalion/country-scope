@@ -3,7 +3,7 @@ import './Jumbotron.css'; // File CSS untuk styling Jumbotron
 import Typed from 'typed.js'
 import SearchBox from '../searchBox/SearchBox'
 
-const Jumbotron = () => { 
+const Jumbotron = ({ onSearchKeyword }) => { 
     const typedText = useRef(null);
 
   useEffect(() => {
@@ -19,16 +19,16 @@ const Jumbotron = () => {
       cursorChar: "_"
     });
 
-    // Destropying
+    // Destroying
     return () => {
       typed.destroy();
     };
   }, []);
 
-    const handleSearch = (query) => {
-        console.log('Searching for:', query);
-        // Implement your search logic here
-      };
+    // const handleSearch = (query) => {
+    //     console.log('Searching for:', query);
+    //     onSearchKeyword(query);
+    // };
   
     return (
       <section className="jumbotron">
@@ -41,7 +41,7 @@ const Jumbotron = () => {
                     <h1><span ref={typedText}></span></h1>
                     <p>Search over 230 locations across the globe.</p>
                     <label>Try Indonesia, Japan or Germany.</label>
-                    <SearchBox onSearch={handleSearch} />
+                    <SearchBox onSearch={onSearchKeyword}/>
                 </div>
             </div>
         </div>

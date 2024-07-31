@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { getCountriesByRegion } from '../../services/services';
 import './Dropdown.css';
 
 const Dropdown = ({ title, dropdownItems, onSelectedRegion }) => {
@@ -27,7 +26,7 @@ const Dropdown = ({ title, dropdownItems, onSelectedRegion }) => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isOpen]);
-  
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropdown-toggle">
